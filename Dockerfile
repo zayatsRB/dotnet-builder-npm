@@ -1,7 +1,7 @@
-FROM microsoft/dotnet:2.1-sdk AS builder
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS builder
 #STAGE 1
-ENV NODE_VERSION 8.9.1
-ENV NODE_DOWNLOAD_SHA 0e49da19cdf4c89b52656e858346775af21f1953c308efbc803b665d6069c15c
+ENV NODE_VERSION 12.16.2
+ENV NODE_DOWNLOAD_SHA ffc92b8d9f53a10a2a734c93e78a3be74af7b0034bddd6f034a700c430eb94c1
 RUN curl -SL "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.gz" --output nodejs.tar.gz \
     && echo "$NODE_DOWNLOAD_SHA nodejs.tar.gz" | sha256sum -c - \
     && tar -xzf "nodejs.tar.gz" -C /usr/local --strip-components=1 \
